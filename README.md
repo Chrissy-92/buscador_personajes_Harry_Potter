@@ -1,6 +1,6 @@
 # ⚡ Harry Potter Character Explorer ⚡
 
-# An interactive web application that allows you to explore the vast world of Harry Potter characters. You can search characters by name, filter by their Hogwarts house, and view full details for each one. Developed with React for a fluid and dynamic user experience.
+### An interactive web application that allows you to explore the vast world of Harry Potter characters. You can search characters by name, filter by their Hogwarts house, and view full details for each one. Developed with React for a fluid and dynamic user experience.
 
 ## 🚀 Key Features
 
