@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router";
 import "../styles/App.scss";
-import CharacterList from "./CharacterList";
+import FiltersPage from "../pages/FiltersPage";
+import DetailPage from "../pages/DetailPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  // const [filterCharacter, setFilterCharacter] = useState("");
   const [filters, setFilters] = useState({
     name: "",
     house: "",
@@ -17,20 +18,6 @@ function App() {
         setCharacters(data);
       });
   }, []);
-
-  // const handleInputFilterCharacter = (ev) => {
-  //   setFilters({
-  //     ...filters,
-  //     name: ev.target.value,
-  //   });
-  // };
-
-  // const handleInputFilterHouse = (ev) => {
-  //   setFilters({
-  //     ...filters,
-  //     house: ev.target.value,
-  //   });
-  // };
 
   const handleInputFilter = (ev) => {
     const { id, value } = ev.target;
@@ -54,33 +41,19 @@ function App() {
         <h1 className="header__title">Harry Potter</h1>
       </header>
       <main className="main">
-        <form onSubmit={(ev) => ev.preventDefault()} className="form__search">
-          <label htmlFor="name">Busca por personaje: </label>
-          <input
-            className="input__search"
-            onInput={handleInputFilter}
-            value={filters.name}
-            type="text"
-            name="name"
-            id="name"
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <FiltersPage
+                filteredCharacters={filteredCharacters}
+                filters={filters}
+                handleInputFilter={handleInputFilter}
+              />
+            }
           />
-          <br />
-          <label htmlFor="house">Selecciona la casa: </label>
-          <select
-            className="select__house"
-            onInput={handleInputFilter}
-            value={filters.house}
-            name="house"
-            id="house"
-          >
-            <option value="">All Houses Howgarts</option>
-            <option value="Gryffindor">Gryffindor</option>
-            <option value="Slytherin">Slytherin</option>
-            <option value="Hufflepuff">Hufflepuff</option>
-            <option value="Ravenclaw">Ravenclaw</option>
-          </select>
-        </form>
-        <CharacterList characters={filteredCharacters} />
+          <Route path="/detail/:name" element={<DetailPage />} />
+        </Routes>
       </main>
     </div>
   );

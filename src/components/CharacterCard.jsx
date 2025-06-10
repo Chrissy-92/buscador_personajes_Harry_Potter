@@ -1,6 +1,8 @@
+import { Link } from "react-router";
+
 function CharacterCard({ eachCharacterObj }) {
   return (
-    <>
+    <Link to={"/detail/" + eachCharacterObj.name}>
       <img
         className="img__character"
         src={
@@ -10,7 +12,7 @@ function CharacterCard({ eachCharacterObj }) {
       />
       <p className="data__character"> {eachCharacterObj.name} </p>
       <p className="data__character"> {eachCharacterObj.species} </p>
-    </>
+    </Link>
   );
 }
 
