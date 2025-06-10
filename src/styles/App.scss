@@ -8,17 +8,19 @@
   margin: 50px;
 }
 
-.input__search {
+.input__search,
+.select__house {
   background-color: transparent;
-  color: #bea051;
+  color: white;
   padding: 0.025rem;
   margin-block: 0.5rem;
   font-size: 20px;
   width: 30ch;
-  border: solid 3px;
+  border: solid 3px #bea051;
 }
 
-.input__search:hover {
+.input__search:hover,
+.select__house:hover {
   border-color: #5c1912;
   cursor: pointer;
 }

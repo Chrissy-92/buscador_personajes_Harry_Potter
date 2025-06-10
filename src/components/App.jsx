@@ -18,17 +18,25 @@ function App() {
       });
   }, []);
 
-  const handleInputFilterCharacter = (ev) => {
-    setFilters({
-      ...filters,
-      name: ev.target.value,
-    });
-  };
+  // const handleInputFilterCharacter = (ev) => {
+  //   setFilters({
+  //     ...filters,
+  //     name: ev.target.value,
+  //   });
+  // };
 
-  const handleInputFilterHouse = (ev) => {
+  // const handleInputFilterHouse = (ev) => {
+  //   setFilters({
+  //     ...filters,
+  //     house: ev.target.value,
+  //   });
+  // };
+
+  const handleInputFilter = (ev) => {
+    const { id, value } = ev.target;
     setFilters({
       ...filters,
-      house: ev.target.value,
+      [id]: value,
     });
   };
 
@@ -47,21 +55,25 @@ function App() {
       </header>
       <main className="main">
         <form onSubmit={(ev) => ev.preventDefault()} className="form__search">
-          <label htmlFor="fullname">Busca por personaje: </label>
+          <label htmlFor="name">Busca por personaje: </label>
           <input
-            onInput={handleInputFilterCharacter}
-            value={filters.name}
             className="input__search"
+            onInput={handleInputFilter}
+            value={filters.name}
             type="text"
-            name="fullname"
-            id="fullname"
+            name="name"
+            id="name"
           />
+          <br />
+          <label htmlFor="house">Selecciona la casa: </label>
           <select
-            onInput={handleInputFilterHouse}
+            className="select__house"
+            onInput={handleInputFilter}
             value={filters.house}
             name="house"
             id="house"
           >
+            <option value="">All Houses Howgarts</option>
             <option value="Gryffindor">Gryffindor</option>
             <option value="Slytherin">Slytherin</option>
             <option value="Hufflepuff">Hufflepuff</option>
