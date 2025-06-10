@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import "../styles/App.scss";
 import FiltersPage from "../pages/FiltersPage";
 import DetailPage from "../pages/DetailPage";
+import harryPotterLogo from "../images/harry-potter-logo.png";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -38,7 +39,7 @@ function App() {
   return (
     <div className="div__container">
       <header className="header">
-        <h1 className="header__title">Harry Potter</h1>
+        <img src={harryPotterLogo} className="header__title" />
       </header>
       <main className="main">
         <Routes>

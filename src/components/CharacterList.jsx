@@ -4,9 +4,11 @@ function CharacterList({ characters }) {
   return (
     <ul className="list__characters">
       {characters.map((eachCharacterObj) => (
-        <li key={eachCharacterObj.id} className="item__character">
-          <CharacterCard eachCharacterObj={eachCharacterObj} />
-        </li>
+        <section className="character__container">
+          <li key={eachCharacterObj.id}>
+            <CharacterCard eachCharacterObj={eachCharacterObj} />
+          </li>
+        </section>
       ))}
     </ul>
   );

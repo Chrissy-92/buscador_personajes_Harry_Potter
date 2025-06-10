@@ -1,8 +1,12 @@
 import { Link, useParams } from "react-router";
+import Gryffindor from "../images/01_gryffindor.jpeg";
+import Slytherin from "../images/02_slytherin.jpeg";
+import Hufflepuff from "../images/03_hufflepuff.jpeg";
+import Ravenclaw from "../images/04_ravenclaw.jpeg";
+import HogwartsGoldenEmblem from "../images/hogwarts-golden-emblem.jpg";
 
 function DetailPage({ characters }) {
   const params = useParams();
-  console.log(params);
 
   const wizardToShow = characters.find(
     (eachCharacterObj) => eachCharacterObj.name === params.wizardName
@@ -15,22 +19,46 @@ function DetailPage({ characters }) {
     status = wizardToShow.gender === "female" ? "Muerta" : "Muerto";
   }
 
-  console.log(wizardToShow);
+  let hogwartsHouseImageSrc = "";
+  if (wizardToShow.house === "Gryffindor") {
+    hogwartsHouseImageSrc = Gryffindor;
+  } else if (wizardToShow.house === "Slytherin") {
+    hogwartsHouseImageSrc = Slytherin;
+  } else if (wizardToShow.house === "Hufflepuff") {
+    hogwartsHouseImageSrc = Hufflepuff;
+  } else if (wizardToShow.house === "Ravenclaw") {
+    hogwartsHouseImageSrc = Ravenclaw;
+  } else if (wizardToShow.house === "") {
+    hogwartsHouseImageSrc = HogwartsGoldenEmblem;
+  }
+
   return (
-    <div>
-      <img
-        src={
-          wizardToShow.image ||
-          "https://placehold.co/210x295/ffffff/666666/?format=svg&text=Harry+Potter"
-        }
-      />
-      <h2>{wizardToShow.name}</h2>
-      <p>Status: {status}</p>
-      <p>Species: {wizardToShow.species}</p>
-      <p>Gender: {wizardToShow.gender}</p>
-      <p>House: {wizardToShow.house}</p>
-      <Link to="/">Volver Atrás</Link>
-    </div>
+    <>
+      <div className="wizard__card">
+        <img
+          src={
+            wizardToShow.image ||
+            "https://placehold.co/210x295/ffffff/666666/?format=svg&text=Harry+Potter"
+          }
+        />
+        <div className="wizard__information">
+          <h2>{wizardToShow.name}</h2>
+          <p>Status: {status}</p>
+          <p>Species: {wizardToShow.species}</p>
+          <p>Gender: {wizardToShow.gender}</p>
+          <p>House: {wizardToShow.house}</p>
+          <div className="div__hogwartsHouse">
+            <img
+              src={hogwartsHouseImageSrc}
+              alt={`Imagen de la casa ${wizardToShow.house}`}
+            />
+          </div>
+        </div>
+      </div>
+      <Link className="link" to="/">
+        Volver Atrás
+      </Link>
+    </>
   );
 }
 
