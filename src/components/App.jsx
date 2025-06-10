@@ -18,6 +18,12 @@ function App() {
     setFilterCharacter(ev.target.value);
   };
 
+  const filteredCharacters = characters.filter((eachCharacter) =>
+    eachCharacter.name
+      .toLocaleLowerCase()
+      .includes(filterCharacter.toLocaleLowerCase())
+  );
+
   return (
     <div className="div__container">
       <header className="header">
@@ -28,13 +34,14 @@ function App() {
           <label htmlFor="fullname">Busca por personaje: </label>
           <input
             onInput={handleInputFilterCharacter}
+            value={filterCharacter}
             className="input__search"
             type="text"
             name="fullname"
             id="fullname"
           />
         </form>
-        <CharacterList characters={characters} />
+        <CharacterList characters={filteredCharacters} />
       </main>
     </div>
   );
