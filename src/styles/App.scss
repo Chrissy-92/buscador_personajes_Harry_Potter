@@ -8,6 +8,20 @@
   margin: 50px;
 }
 
+.input__search {
+  background-color: transparent;
+  color: #bea051;
+  padding: 0.025rem;
+  margin-block: 0.5rem;
+  font-size: 20px;
+  width: 30ch;
+  border: solid 3px;
+}
+
+.input__search:hover {
+  border-color: #5c1912;
+}
+
 .list__characters {
   list-style: none;
   display: grid;

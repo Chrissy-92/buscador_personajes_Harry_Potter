@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/App.scss";
-import data from "../data/characters.json";
+import CharacterList from "./CharacterList";
 
 function App() {
-  const [characters, setCharacters] = useState(data);
+  const [characters, setCharacters] = useState([]);
+  const [filterCharacter, setFilterCharacter] = useState("");
+
+  useEffect(() => {
+    fetch("https://hp-api.onrender.com/api/characters/house/gryffindor")
+      .then((res) => res.json())
+      .then((data) => {
+        setCharacters(data);
+      });
+  }, []);
+
+  const handleInputFilterCharacter = (ev) => {
+    setFilterCharacter(ev.target.value);
+  };
 
   return (
     <div className="div__container">
@@ -12,20 +25,16 @@ function App() {
       </header>
       <main className="main">
         <form className="form__search">
-          <div>
-            <label htmlFor="fullname">Busca por personaje: </label>
-            <input onInput={""} type="text" name="fullname" id="fullname" />
-          </div>
+          <label htmlFor="fullname">Busca por personaje: </label>
+          <input
+            onInput={handleInputFilterCharacter}
+            className="input__search"
+            type="text"
+            name="fullname"
+            id="fullname"
+          />
         </form>
-        <ul className="list__characters">
-          {characters.map((eachCharacterObj) => (
-            <li key={eachCharacterObj.id} className="item__character">
-              <img className="img__character" src={eachCharacterObj.image} />
-              <p className="data__character"> {eachCharacterObj.name} </p>
-              <p className="data__character"> {eachCharacterObj.species} </p>
-            </li>
-          ))}
-        </ul>
+        <CharacterList characters={characters} />
       </main>
     </div>
   );
