@@ -1,9 +1,16 @@
 import CharacterList from "../components/CharacterList";
-function FiltersPage({ filteredCharacters, filters, handleInputFilter }) {
+function FiltersPage({
+  filteredCharacters,
+  filters,
+  handleInputFilter,
+  handleResetFilters,
+}) {
   return (
     <>
       <form onSubmit={(ev) => ev.preventDefault()} className="form__search">
-        <label htmlFor="name">Busca por personaje: </label>
+        <label className="label__search" htmlFor="name">
+          Busca por personaje:{" "}
+        </label>
         <input
           className="input__search"
           onInput={handleInputFilter}
@@ -13,7 +20,9 @@ function FiltersPage({ filteredCharacters, filters, handleInputFilter }) {
           id="name"
         />
         <br />
-        <label htmlFor="house">Selecciona la casa: </label>
+        <label className="label__select" htmlFor="house">
+          Selecciona la casa:{" "}
+        </label>
         <select
           className="select__house"
           onInput={handleInputFilter}
@@ -27,6 +36,11 @@ function FiltersPage({ filteredCharacters, filters, handleInputFilter }) {
           <option value="Hufflepuff">Hufflepuff</option>
           <option value="Ravenclaw">Ravenclaw</option>
         </select>
+        <br />
+        <button className="reset-button" onClick={handleResetFilters}>
+          <i class="fa-solid fa-arrow-rotate-right"></i>
+          Reset
+        </button>
       </form>
       <CharacterList characters={filteredCharacters} />
     </>

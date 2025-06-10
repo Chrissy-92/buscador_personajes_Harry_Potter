@@ -1,14 +1,15 @@
 import { Link } from "react-router";
+import hogwartsLasCuatroCasas from "../images/hogwarts_LasCuatroCasas.jpg";
 
 function CharacterCard({ eachCharacterObj }) {
+  let characterPhotoInfo = eachCharacterObj.image || hogwartsLasCuatroCasas;
+
   return (
     <Link className="link" to={"/detail/" + eachCharacterObj.name}>
       <img
         className="img__character"
-        src={
-          eachCharacterObj.image ||
-          "https://placehold.co/210x295/ffffff/666666/?format=svg&text=Harry+Potter"
-        }
+        src={characterPhotoInfo}
+        alt={`Imagen de ${eachCharacterObj.name}`}
       />
       <div className="character__info">
         <h4> {eachCharacterObj.name} </h4>

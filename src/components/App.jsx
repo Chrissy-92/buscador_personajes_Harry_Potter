@@ -28,6 +28,13 @@ function App() {
     });
   };
 
+  const handleResetFilters = () => {
+    setFilters({
+      name: "",
+      house: "",
+    });
+  };
+
   const filteredCharacters = characters
     .filter((eachCharacter) =>
       eachCharacter.name
@@ -50,6 +57,7 @@ function App() {
                 filteredCharacters={filteredCharacters}
                 filters={filters}
                 handleInputFilter={handleInputFilter}
+                handleResetFilters={handleResetFilters}
               />
             }
           />

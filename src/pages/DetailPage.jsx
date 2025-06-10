@@ -4,6 +4,7 @@ import Slytherin from "../images/02_slytherin.jpeg";
 import Hufflepuff from "../images/03_hufflepuff.jpeg";
 import Ravenclaw from "../images/04_ravenclaw.jpeg";
 import HogwartsGoldenEmblem from "../images/hogwarts-golden-emblem.jpg";
+import hogwartsLasCuatroCasas from "../images/hogwarts_LasCuatroCasas.jpg";
 
 function DetailPage({ characters }) {
   const params = useParams();
@@ -35,12 +36,7 @@ function DetailPage({ characters }) {
   return (
     <>
       <div className="wizard__card">
-        <img
-          src={
-            wizardToShow.image ||
-            "https://placehold.co/210x295/ffffff/666666/?format=svg&text=Harry+Potter"
-          }
-        />
+        <img src={wizardToShow.image || hogwartsLasCuatroCasas} />
         <div className="wizard__information">
           <h2>{wizardToShow.name}</h2>
           <p>Status: {status}</p>
@@ -56,7 +52,10 @@ function DetailPage({ characters }) {
         </div>
       </div>
       <Link className="link" to="/">
-        Volver Atrás
+        <p className="p__link">
+          <i class="fa-solid fa-angle-left"></i>
+          Volver Atrás
+        </p>
       </Link>
     </>
   );
