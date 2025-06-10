@@ -92,6 +92,6 @@ npm run dev
 
 This will open the application in your default browser.
 
-## 👩‍💻 Author
+## Author
 
 Cristina Angélica Pérez Huerta.
