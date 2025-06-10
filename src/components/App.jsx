@@ -7,7 +7,7 @@ function App() {
   // const [filterCharacter, setFilterCharacter] = useState("");
   const [filters, setFilters] = useState({
     name: "",
-    city: "",
+    house: "",
   });
 
   useEffect(() => {
@@ -25,11 +25,20 @@ function App() {
     });
   };
 
-  const filteredCharacters = characters.filter((eachCharacter) =>
-    eachCharacter.name
-      .toLocaleLowerCase()
-      .includes(filters.name.toLocaleLowerCase())
-  );
+  const handleInputFilterHouse = (ev) => {
+    setFilters({
+      ...filters,
+      house: ev.target.value,
+    });
+  };
+
+  const filteredCharacters = characters
+    .filter((eachCharacter) =>
+      eachCharacter.name
+        .toLocaleLowerCase()
+        .includes(filters.name.toLocaleLowerCase())
+    )
+    .filter((eachCharacter) => eachCharacter.house.includes(filters.house));
 
   return (
     <div className="div__container">
@@ -47,10 +56,15 @@ function App() {
             name="fullname"
             id="fullname"
           />
-          <select name="house" id="house">
+          <select
+            onInput={handleInputFilterHouse}
+            value={filters.house}
+            name="house"
+            id="house"
+          >
             <option value="Gryffindor">Gryffindor</option>
             <option value="Slytherin">Slytherin</option>
-            <option value="Hufflepuff ">Hufflepuff</option>
+            <option value="Hufflepuff">Hufflepuff</option>
             <option value="Ravenclaw">Ravenclaw</option>
           </select>
         </form>
