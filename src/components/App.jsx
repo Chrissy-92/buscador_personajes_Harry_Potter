@@ -52,7 +52,10 @@ function App() {
               />
             }
           />
-          <Route path="/detail/:name" element={<DetailPage />} />
+          <Route
+            path="/detail/:wizardName"
+            element={<DetailPage characters={characters} />}
+          />
         </Routes>
       </main>
     </div>
