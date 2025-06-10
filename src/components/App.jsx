@@ -4,10 +4,14 @@ import CharacterList from "./CharacterList";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [filterCharacter, setFilterCharacter] = useState("");
+  // const [filterCharacter, setFilterCharacter] = useState("");
+  const [filters, setFilters] = useState({
+    name: "",
+    city: "",
+  });
 
   useEffect(() => {
-    fetch("https://hp-api.onrender.com/api/characters/house/gryffindor")
+    fetch("https://hp-api.onrender.com/api/characters")
       .then((res) => res.json())
       .then((data) => {
         setCharacters(data);
@@ -15,13 +19,16 @@ function App() {
   }, []);
 
   const handleInputFilterCharacter = (ev) => {
-    setFilterCharacter(ev.target.value);
+    setFilters({
+      ...filters,
+      name: ev.target.value,
+    });
   };
 
   const filteredCharacters = characters.filter((eachCharacter) =>
     eachCharacter.name
       .toLocaleLowerCase()
-      .includes(filterCharacter.toLocaleLowerCase())
+      .includes(filters.name.toLocaleLowerCase())
   );
 
   return (
@@ -30,16 +37,22 @@ function App() {
         <h1 className="header__title">Harry Potter</h1>
       </header>
       <main className="main">
-        <form className="form__search">
+        <form onSubmit={(ev) => ev.preventDefault()} className="form__search">
           <label htmlFor="fullname">Busca por personaje: </label>
           <input
             onInput={handleInputFilterCharacter}
-            value={filterCharacter}
+            value={filters.name}
             className="input__search"
             type="text"
             name="fullname"
             id="fullname"
           />
+          <select name="house" id="house">
+            <option value="Gryffindor">Gryffindor</option>
+            <option value="Slytherin">Slytherin</option>
+            <option value="Hufflepuff ">Hufflepuff</option>
+            <option value="Ravenclaw">Ravenclaw</option>
+          </select>
         </form>
         <CharacterList characters={filteredCharacters} />
       </main>
