@@ -1,97 +1,102 @@
 # ⚡ Harry Potter Character Explorer ⚡
 
-An interactive web application that allows you to explore the vast world of Harry Potter characters. You can search characters by name, filter by their Hogwarts house, and view full details for each one. Developed with **React** for a fluid and dynamic user experience.
+🔮 Una aplicación web interactiva que te permite explorar el mágico universo de personajes de **Harry Potter**.  
+Puedes buscar por nombre, filtrar por casa de Hogwarts y consultar detalles individuales.  
+Desarrollada con **React** para ofrecer una experiencia dinámica y fluida.
 
 ---
 
-## 🚀 Key Features
+## ✨ Funcionalidades Principales
 
-This project has been designed to offer a simple and efficient Browse experience through the list of Harry Potter characters, incorporating the following features:
+Esta aplicación está diseñada para ofrecer una experiencia de exploración simple y eficiente de los personajes, incorporando:
 
-### 1. Comprehensive Character List
+### 🧙‍♂️ 1. Listado completo de personajes
 
-Upon loading the application, a list of all Harry Potter characters is displayed, fetched from the [https://hp-api.onrender.com/api/characters](https://hp-api.onrender.com/api/characters) API. Each character card shows:
+📦 Al cargar la app, se obtiene un listado desde la API pública:  
+🔗 [`https://hp-api.onrender.com/api/characters`](https://hp-api.onrender.com/api/characters)
 
-- **Photo:** The character's official image. If a character does not have an image available from the API, a default placeholder image will be displayed to ensure consistent visualization.
-- **Name:** The character's full name.
-- **Species:** The character's species (human, elf, etc.).
+Cada tarjeta de personaje incluye:
 
-### 2. Dynamic Filtering by Name
+- 🖼️ **Foto** (o imagen por defecto si no está disponible)
+- 🧾 **Nombre completo**
+- 🧬 **Especie** (humano, elfo, etc.)
 
-An input field (`<input>`) is included, allowing users to filter the character list in real-time. As you type, only characters whose names contain the entered letters will remain in the interface, making it easy to find specific characters.
+### 🔎 2. Filtro dinámico por nombre
 
-### 3. Filtering by House
+📝 Un campo `<input>` permite filtrar personajes mientras escribes, mostrando solo aquellos que coincidan con las letras introducidas.
 
-A dropdown menu (`<select>`) has been added to filter characters by their Hogwarts house (Gryffindor, Slytherin, Hufflepuff, Ravenclaw). Selecting a house will update the list to show only characters belonging to that house.
+### 🏰 3. Filtro por casa de Hogwarts
 
-### 4. Clear and Reusable Components
+📂 Un menú `<select>` permite filtrar por casa: Gryffindor, Slytherin, Hufflepuff o Ravenclaw.  
+Solo se muestran los personajes que pertenecen a la casa seleccionada.
 
-The application is structured into well-defined components for greater modularity, maintainability, and scalability. The following essential components are included:
+### 🧩 4. Componentes claros y reutilizables
 
-#### Name Filter Component
+🧱 La app está dividida en componentes bien definidos para mayor escalabilidad:
 
-Manages the name search input.
+- 🧼 **NameFilter**: Controla el input de búsqueda
+- 📃 **Listing**: Contenedor principal de tarjetas
+- 🧙 **CharacterCard**: Representa individualmente a cada personaje
+- 📖 **CharacterDetail**: Muestra los detalles al hacer clic en una tarjeta
 
-#### Listing Component
+### 🌐 5. Navegación con React Router
 
-The main container that organizes the display of character cards.
+🚪 Al hacer clic en una tarjeta, se navega a una **ruta específica** mostrando más detalles:  
+(Implementado con `React Router` para una navegación sin recarga de página)
 
-#### Character Card Component
+Incluye:
 
-Individually represents each character in the list, displaying their photo, name, and species.
+- Imagen
+- Nombre
+- Casa
+- Estado (vivo o muerto)
+- Género
+- Especie  
+  ↩️ Botón para volver al listado
 
-#### Character Detail Component
+### 🔁 6. Botón de reinicio
 
-Shows extended information about a character when their card is clicked.
-
-### 5. Character Detail with **React Router**
-
-Clicking on any character card navigates to a new route to display the character's full details on a dedicated screen. This functionality is implemented using the **React Router** library, which allows navigation between different views without a full page reload. The detail view includes:
-
-- Photo
-- Name
-- Belonging House
-- Status (alive or dead)
-- Gender
-- Species
-
-A "back" button to return to the main list.
-
-### 6. Reset Button
-
-A "Reset" button has been implemented to reset all filters (name and house) to their initial values, bringing back the complete list of all characters. This feature facilitates navigation and restarting searches.
+🧼 Botón "Reset" que limpia todos los filtros y restablece la lista completa.  
+Facilita nuevas búsquedas y mejora la navegación.
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tecnologías utilizadas
 
-- **React:** The primary development environment for building the user interface.
-- **React Router:** For managing application navigation and routes.
-- **HTML5:** Content structure.
-- **CSS3 (SCSS/Sass):** Application styles and responsive design, utilizing SCSS syntax for better organization.
-- **JavaScript (ES6+):** Logic and DOM manipulation.
-- **Public API:** [https://hp-api.onrender.com/](https://hp-api.onrender.com/) to fetch character data.
+- ⚛️ **React** – UI principal
+- 🧭 **React Router** – Navegación
+- 🧱 **HTML5** – Estructura
+- 🎨 **SCSS (Sass)** – Estilos
+- 💡 **JavaScript (ES6+)** – Lógica de la app
+- 🌐 **API Pública** – [`hp-api`](https://hp-api.onrender.com/)
 
 ---
 
-## 🚀 How to Get Started
+## 🧪 Cómo empezar
 
-Follow these steps to clone the repository and run the project on your local machine:
+Sigue estos pasos para clonar y ejecutar el proyecto localmente:
 
-### 1. Clone the repository:
+# 1. Clona el repositorio
 
-git clone
+```bash
+git clone https://github.com/Chrissy-92/harry-potter-character-explorer.git
+cd harry-potter-character-explorer
+```
 
-### 2. Install dependencies:
+# 2. Instala las dependencias
 
+```bash
 npm install
+```
 
-### 3. Start the application in development mode:
+# 3. Ejecuta la app en modo desarrollo
 
+```bash
 npm run dev
+```
 
-This will open the application in your default browser.
+📂 Esto abrirá la aplicación automáticamente en tu navegador.
 
-## Author
-
-Cristina Angélica Pérez Huerta.
+👩‍💻 Autora
+Cristina Angélica Pérez Huerta
+Desarrolladora Web Full Stack.
