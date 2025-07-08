@@ -1,4 +1,4 @@
-# ⚡ Harry Potter Character Explorer ⚡
+# ⚡ Buscador de personajes Harry Potter ⚡
 
 🔮 Una aplicación web interactiva que te permite explorar el mágico universo de personajes de **Harry Potter**.  
 Puedes buscar por nombre, filtrar por casa de Hogwarts y consultar detalles individuales.  
